@@ -7,11 +7,12 @@ import 'ress/dist/ress.min.css';
 import Home from './Home';
 import NotFound from './NotFound';
 import PointMaker from './PointMaker';
+import PhotoAnimate from './PhotoAnimate';
 
 const Main = () => (
   <Router>
     <Switch>
-      <Route exact path="/" component={PointMaker} />
+      <Route exact path="/" component={PhotoAnimate} />
       <Route component={NotFound} />
     </Switch>
   </Router>

@@ -1,11 +1,24 @@
 #photoAnimate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 500px;
+    perspective-origin: center;
     #container {
         display: flex;
+        transform-style: 3d;
         #leftSide,
-        #rightSidt {
+        #rightSide {
             border: 1px solid black;
-            width: 770px;
+            width: 360px;
             height: 602px;
+            position: relative;
+            .photo {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 70px;
+            }
         }
     }
 }
