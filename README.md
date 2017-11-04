@@ -1,6 +1,8 @@
-# Simple React Start Kit 2017
+# 蝴蝶飛
 
-這個環境包可以讓你快速體驗 ReactJS 開發環境的便利，我們並沒有在裏面放入太多套件(例如 redux, karma)，希望可以讓你用最簡單的環境開始學習 React
+蝴蝶飛，蝴蝶飛
+
+![Imgur](https://i.imgur.com/FikDq6a.gif)
 
 ## 特色
 
@@ -9,6 +11,7 @@
 * [webpack 2](https://github.com/webpack/webpack)
 * [babel stage-0 ](https://github.com/babel/babel)
 * [eslint](http://eslint.org)
+* [react-transition-group](https://reactcommunity.org/react-transition-group/)
 
 ## 需求配置
 * node `^4.5.0`
