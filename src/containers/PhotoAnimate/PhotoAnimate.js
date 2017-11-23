@@ -9,10 +9,13 @@ import './PhotoAnimate.less';
 export default class PhotoAnimate extends Component {
 
   config = {
-    seeds: 200,
+    maxSeeds: 400,
     randomMaxX: 400,
     randomMaxY: 620,
   }
+
+  nowLeftSeeds = 0
+  nowRightSeeds = 0
 
   state = {
     leftPhotos: [],
@@ -36,29 +39,37 @@ export default class PhotoAnimate extends Component {
     };
     return (
       <Transition timeout={10} key={uuid}>
-        {state => <img className="photo" style={transitionStyle[state]} alt="goodimg" src="http://fakeimg.pl/100" />}
+        {state => <img className="photo" style={transitionStyle[state]} alt="goodimg" src="http://fakeimg.pl/40" />}
       </Transition>
     );
   }
 
 
-  qqq = () => {
+  generateLeftPhoto = () => {
     const photo = this.createPhoto(path.pathLeft);
+    this.nowLeftSeeds += 1;
     this.setState({
-      leftPhotos: [...this.state.leftPhotos.slice(-200), photo],
+      leftPhotos: [...this.state.leftPhotos, photo],
     });
+    if (this.nowLeftSeeds > this.config.maxSeeds) {
+      clearInterval(this.leftInterval);
+    }
   }
 
-  rrr = () => {
+  generateRightPhoto = () => {
     const photo = this.createPhoto(path.pathRight);
+    this.nowRightSeeds += 1;
     this.setState({
-      rightPhotos: [...this.state.rightPhotos.slice(-200), photo],
+      rightPhotos: [...this.state.rightPhotos, photo],
     });
+    if (this.nowRightSeeds > this.config.maxSeeds) {
+      clearInterval(this.rightInterval);
+    }
   }
 
   componentDidMount() {
-    setInterval(this.qqq, 510);
-    setInterval(this.rrr, 520);
+    this.leftInterval = setInterval(this.generateLeftPhoto, 30);
+    this.rightInterval = setInterval(this.generateRightPhoto, 35);
   }
 
   render() {
